@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QPOS SATIŞ EĞİTİM</title>
+  <style>
+    /* Genel stil ayarları */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 80%;
+      margin: 50px auto;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      color: #333;
+    }
+    /* Üst ana sekme stilleri */
+    .tab {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 30px;
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    .tab button {
+      background-color: transparent;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 18px;
+      margin: 5px;
+    }
+    .tab button:hover {
+      background-color: #555;
+    }
+    .tab button.active {
+      background-color: #555;
+    }
+    .tab-content {
+      display: none;
+      margin-top: 20px;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    /* Başlık ve açıklama stilleri */
+    .main-section-header {
+      font-size: 30px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .section-header {
+      font-size: 28px;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    .section-description {
+      font-size: 22px;
+      color: #000;
+      margin-bottom: 20px;
+    }
+    /* Görsel stilleri */
+    img {
+      max-width: 80%;
+      height: auto;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    /* Inner Tab (Satış Ekranı alt sekmeleri) stilleri */
+    .inner-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background-color: #666;
+      padding: 8px;
+      border-radius: 5px;
+      margin-bottom: 20px;
+    }
+    .inner-tabs button {
+      background-color: transparent;
+      border: none;
+      color: white;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-size: 16px;
+      margin: 5px;
+    }
+    .inner-tabs button:hover {
+      background-color: #777;
+    }
+    .inner-tabs button.active {
+      background-color: #777;
+    }
+    .inner-tab-content {
+      display: none;
+    }
+    .inner-tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>QPOS SATIŞ EĞİTİM</h1>
+    
+    <!-- Üst ana sekme butonları -->
+    <div class="tab">
+      <button class="tablinks" onclick="openTab(event, 'girisEkrani')">Giriş Ekranı</button>
+      <button class="tablinks" onclick="openTab(event, 'satisEkrani')">Satış Ekranı</button>
+      <button class="tablinks" onclick="openTab(event, 'hataYonetimi')">Hata Yönetimi</button>
+    </div>
+    
+    <!-- Giriş Ekranı İçeriği -->
+    <div id="girisEkrani" class="tab-content active">
+      <h2 class="main-section-header">Açılış Ekranı</h2>
+      <p class="section-description">
+        Qpos uygulamasını çalıştırdığımızda ilk olarak ingenico yazar kasa bağlantısını kontrol eder ve sonrasında kasiyer giriş ekranını getirtir.
+        (Bu işlem bir kaç saniye sürecektir)
+      </p>
+      <img src="https://i.imgur.com/TJ4UBVv.png" alt="Giriş Ekranı Görseli">
+      
+      <div class="section">
+        <h3 class="section-header">Kasiyer Giriş Ekranı</h3>
+        <p class="section-description">
+          Burada "Qpos Asistan" uygulamasından tanımlanan kasiyer no ve şifre ile giriş yapıyoruz.
+        </p>
+        <img src="https://i.imgur.com/7vuRxvk.png" alt="Kasiyer Giriş Ekranı Görseli">
+      </div>
+    </div>
+    
+    <!-- Satış Ekranı İçeriği -->
+    <div id="satisEkrani" class="tab-content">
+      <h2 class="main-section-header">Satış Ekranı</h2>
+      
+      <!-- Inner Tab Navigasyonu (Satış Ekranı alt sekmeleri) -->
+      <div class="inner-tabs">
+        <button class="inner-tablink" onclick="openInnerTab(event, 'satisAnaEkran')" id="defaultInnerTab">Ana Ekran</button>
+        <button class="inner-tablink" onclick="openInnerTab(event, 'urunOkutmaYontemleri')">Ürün Okutma Yöntemleri</button>
+        <button class="inner-tablink" onclick="openInnerTab(event, 'satisYap')">Satış</button>
+        <button class="inner-tablink" onclick="openInnerTab(event, 'listeKullanim')">Liste Kullanım</button>
+        <button class="inner-tablink" onclick="openInnerTab(event, 'topluUrunSatisi')">Toplu Ürün Satışı</button>
+        <button class="inner-tablink" onclick="openInnerTab(event, 'urunSilmeFisIptal')">Ürün Silme ve Fiş İptal</button>
+      </div>
+      
+      <!-- İçerik: Ana Ekran -->
+      <div id="satisAnaEkran" class="inner-tab-content active">
+        <img src="https://i.imgur.com/jAh3N8S.png" alt="Ana Ekran Görseli">
+      </div>
+      
+      <!-- İçerik: Ürün Okutma Yöntemleri -->
+      <div id="urunOkutmaYontemleri" class="inner-tab-content">
+        <h4 class="section-header">Yöntem 1</h4>
+        <p class="section-description">Ürünü barkod okuyucusuna okutarak getirmek.</p>
+        
+        <h4 class="section-header">Yöntem 2</h4>
+        <p class="section-description">Barkodu aşağıdaki görseldeki gibi elle girip sonrasında "Giriş" butonuna basarak da getirebiliriz.</p>
+        <img src="https://i.imgur.com/vflsLUD.png" alt="Yöntem 2 Görseli">
+        
+        <h4 class="section-header">Yöntem 3</h4>
+        <p class="section-description">Aşağıdaki görseldeki "Ara" butonuna basarak çıkan ekranda ürünün ismini arayıp "Ekle" sütunundaki (+) işaretine basarak da getirebiliriz.</p>
+        <img src="https://i.imgur.com/TnC5xCc.png" alt="Yöntem 3 Görseli">
+        
+        <h4 class="section-header">Yöntem 4</h4>
+        <p class="section-description">Aşağıda görselde belirtilen "Liste" butonuna basıyoruz. Burası daha çok barkodu okutulamayan ürünler için kullanılıyor ancak isteğe göre ürün-ekleme çıkarma yapılabilir. Listeye basıp listedeki ürünü seçtiğimizde ürünü ekrana yansıtacaktır.</p>
+        <img src="https://i.imgur.com/Lb0YdIJ.png" alt="Yöntem 4 Görseli">
+        <img src="https://i.imgur.com/hkUrlUR.png" alt="Yöntem 4 Ek Görseli">
+      </div>
+      
+      <!-- Yeni İçerik: Satış yap -->
+      <div id="satisYap" class="inner-tab-content">
+        <h4 class="section-header">Satış</h4>
+        <p class="section-description">
+          İlk olarak satışı yapılacak ürünler okutulduktan sonra aşağıda oklar belirtilen "Toplam" butonuna basılır.
+        </p>
+        <img src="https://i.imgur.com/xGobWh8.png" alt="Satış yap Görseli">
+      </div>
+      
+      <!-- İçerik: Liste Kullanım -->
+      <div id="listeKullanim" class="inner-tab-content">
+        <h4 class="section-header">Liste Kullanım</h4>
+        <p class="section-description">Aşağıdaki görselde bulunan "Liste" butonuna basıyoruz.</p>
+        <img src="https://i.imgur.com/Lb0YdIJ.png" alt="Liste Butonu Görseli">
+        
+        <p class="section-description">Açılan sekmede sağda okla gösterilmiş olan "Aktif" butonuna basıyoruz.</p>
+        <img src="https://i.imgur.com/Wp4cMLC.png" alt="Aktif Butonu Görseli">
+        
+        <p class="section-description">Sonrasında bir altında bulunan "Ekle" butonuna bastığımızda bütün ürünlerin olduğu liste ve arama çubuğumuz gelmektedir. Buraya ekleyeceğimiz ürünün adını yazıp yanında okla belirtilen (+) butonuna bastığımız takdirde ürün "Liste" sekmesine eklenecektir.</p>
+        <img src="https://i.imgur.com/HrT4kBU.png" alt="Ekle Butonu Görseli">
+      </div>
+      
+      <!-- İçerik: Toplu Ürün Satışı -->
+      <div id="topluUrunSatisi" class="inner-tab-content">
+        <h4 class="section-header">Yöntem 1</h4>
+        <p class="section-description">
+          Aşağıdaki görselde bulunan (+) ve (-) tuşları ile ürünün adedini arttırıp azaltabilirsiniz.
+          <br><strong>Not:</strong> Ekranda birden fazla ürün var ise lütfen adedini ayarlayacağınız ürünü seçip sonrasında (+) ve (-) tuşlarını kullanınınız.
+        </p>
+        <img src="https://i.imgur.com/q8Kek3E.png" alt="Toplu Ürün Satışı Yöntem 1 Görseli">
+        
+        <h4 class="section-header">Yöntem 2</h4>
+        <p class="section-description">
+          Bir diğer yöntem ise aşağıda görselde belirtilen yere kaç adet varsa adeti yazıp sonrasında okla belirtilen "Tekrar" butonuna bastıktan sonra ürünü ekrana getirme yöntemlerini kullanınız.
+        </p>
+        <img src="https://i.imgur.com/ZdZHtzY.png" alt="Toplu Ürün Satışı Yöntem 2 Görseli">
+      </div>
+      
+      <!-- İçerik: Ürün Silme ve Fiş İptal -->
+      <div id="urunSilmeFisIptal" class="inner-tab-content">
+        <h4 class="section-header">Ürün Silme</h4>
+        <p class="section-description">Okutulan ürünlerden birini veya bir kaçını silmek için aşağıdaki görselde okla belirtilen çöp kutusuna basarak ürünleri tek tek kaldırabilirsiniz.</p>
+        <img src="https://i.imgur.com/GG8G1uU.png" alt="Ürün Silme Görseli">
+        
+        <h4 class="section-header">Fiş İptal</h4>
+        <p class="section-description">Okutulan ürünleri toplu olarak ekrandan silmek için görselde belirtilen "Fiş İptal" butonuna basabilirsiniz.
+          <br>Not: Sistem "İptal" işlemi olarak gözükecektir. Bu işlem stokları etkilemez ve "İade" ile karıştırılmamalıdır.</p>
+        <img src="https://i.imgur.com/bJtR8Wq.png" alt="Fiş İptal Görseli">
+      </div>
+    </div>
+    
+    <!-- Hata Yönetimi İçeriği -->
+    <div id="hataYonetimi" class="tab-content">
+      <h2 class="main-section-header">Hata Yönetimi</h2>
+      <!-- Hata Yönetimi içeriği buraya gelecek -->
+    </div>
+  </div>
+  
+  <script>
+    function openTab(evt, tabName) {
+      var i, tabcontent, tablinks;
+      tabcontent = document.getElementsByClassName("tab-content");
+      for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].classList.remove("active");
+      }
+      tablinks = document.getElementsByClassName("tablinks");
+      for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+      }
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+    function openInnerTab(evt, tabName) {
+      var i, innerTabContent, innerTabLinks;
+      innerTabContent = document.getElementsByClassName("inner-tab-content");
+      for (i = 0; i < innerTabContent.length; i++) {
+        innerTabContent[i].classList.remove("active");
+      }
+      innerTabLinks = document.getElementsByClassName("inner-tablink");
+      for (i = 0; i < innerTabLinks.length; i++) {
+        innerTabLinks[i].classList.remove("active");
+      }
+      document.getElementById(tabName).classList.add("active");
+      evt.currentTarget.classList.add("active");
+    }
+  </script>
+</body>
+</html>
